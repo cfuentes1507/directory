@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Roles para el Directorio Independiente -->
+        <record id="rol_conppa" model="directorio.rol"><field name="name">CONPPA</field></record>
+        <record id="rol_inspectores" model="directorio.rol"><field name="name">Inspectores</field></record>
+        <record id="rol_voceros" model="directorio.rol"><field name="name">Voceros</field></record>
+        <record id="rol_cientificos" model="directorio.rol"><field name="name">Científicos</field></record>
+        <record id="rol_pescadores" model="directorio.rol"><field name="name">Pescadores</field></record>
+        <record id="rol_fomento" model="directorio.rol"><field name="name">Fomento</field></record>
+    </data>
+</odoo>

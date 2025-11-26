@@ -1,35 +1,21 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "directory",
-
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
-    """,
-
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base'],
-
-    # always loaded
+    'name': 'Directorio Telefónico (Independiente)',
+    'version': '15.0.1.0.0',
+    'summary': 'Aplicación de directorio telefónico autocontenida.',
+    'author': 'My Company',
+    'website': 'http://www.yourcompany.com',
+    'category': 'Tools',
+    'depends': ['base'], # ¡Solo depende de base, no de contacts!
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        'data/directorio_rol_data.xml',
+        'views/directorio_views.xml',
+        'views/directorio_menus.xml',
     ],
-    # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'application': True, # Lo marcamos como una aplicación principal
+    'installable': True,
 }

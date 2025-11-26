@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_directory_directory,directory.directory,model_directory_directory,base.group_user,1,1,1,1
+access_directorio_contacto,directorio.contacto,model_directorio_contacto,base.group_user,1,1,1,1
+access_directorio_telefono,directorio.telefono,model_directorio_telefono,base.group_user,1,1,1,1
+access_directorio_rol,directorio.rol,model_directorio_rol,base.group_user,1,1,1,1

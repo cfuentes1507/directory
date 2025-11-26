@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Menú Principal de la Aplicación -->
+    <menuitem 
+        id="directorio_menu_root" 
+        name="Directorio" 
+        sequence="10"
+        web_icon="directory,static/description/icon.png"/> <!-- Necesitarás un ícono aquí -->
+
+    <!-- Menú para los Contactos -->
+    <menuitem 
+        id="directorio_contacto_menu" 
+        name="Contactos" 
+        parent="directorio_menu_root" 
+        action="directorio_contacto_action"
+        sequence="1"/>
+
+    <!-- Menú de Configuración -->
+    <menuitem
+        id="directorio_config_menu"
+        name="Configuración"
+        parent="directorio_menu_root"
+        sequence="100"/>
+
+    <!-- Menú para administrar Roles -->
+    <menuitem
+        id="directorio_rol_menu"
+        name="Roles"
+        parent="directorio_config_menu"
+        action="directorio_rol_action"
+        sequence="1"/>
+</odoo>

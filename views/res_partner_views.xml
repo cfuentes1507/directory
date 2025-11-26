@@ -10,25 +10,10 @@
             <xpath expr="//field[@name='name']" position="after">
                 <!-- Búsqueda Rápida por número de teléfono adicional -->
                 <field name="phone_ids" string="Teléfono" filter_domain="[('phone_ids.numero', 'ilike', self)]"/>
-                <!-- Filtro por Ubicación Geográfica -->
-                <field name="ubicacion_geografica"/>
-                <separator/>
-                <!-- Filtros predefinidos para Ubicación -->
-                <filter string="Zulia" name="filter_zulia" domain="[('ubicacion_geografica', '=', 'zulia')]"/>
-                <filter string="Mérida" name="filter_merida" domain="[('ubicacion_geografica', '=', 'merida')]"/>
-                <!-- Agrupación por Ubicación -->
-                <group expand="1" string="Agrupar por">
-                    <filter string="Ubicación Geográfica" name="groupby_ubicacion" context="{'group_by':'ubicacion_geografica'}"/>
-                </group>
             </xpath>
         </field>
     </record>
     
-    <!-- ... (vistas de formulario y lista a continuación) ... -->
-    <!-- views/res_partner_views.xml (continuación) -->
-<odoo>
-    <!-- ... (vista de búsqueda de antes) ... -->
-
     <!-- 2. Vista de Lista (Tree) Extendida -->
     <record id="view_partner_tree_directorio" model="ir.ui.view">
         <field name="name">res.partner.tree.directorio</field>
@@ -37,7 +22,6 @@
         <field name="arch" type="xml">
             <!-- Añadimos la ubicación y las etiquetas a la lista -->
             <xpath expr="//field[@name='email']" position="after">
-                <field name="ubicacion_geografica"/>
                 <field name="category_id" widget="many2many_tags"/>
             </xpath>
         </field>
@@ -49,10 +33,6 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <!-- Añadimos la ubicación en la sección de dirección -->
-            <xpath expr="//field[@name='vat']" position="before">
-                <field name="ubicacion_geografica"/>
-            </xpath>
             <!-- Añadimos una nueva pestaña para los teléfonos adicionales -->
             <xpath expr="//page[@name='internal_notes']" position="before">
                 <page string="Teléfonos" name="telefonos_adicionales">
@@ -65,7 +45,5 @@
             </xpath>
         </field>
     </record>
-</odoo>
-
   </data>
 </odoo>

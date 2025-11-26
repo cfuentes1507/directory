@@ -1,0 +1,125 @@
+<odoo>
+  <data>
+    <!-- Acción de Ventana para abrir los contactos -->
+    <record id="directorio_contacto_action" model="ir.actions.act_window">
+        <field name="name">Contactos del Directorio</field>
+        <field name="res_model">directorio.contacto</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea tu primer contacto del directorio.
+            </p>
+        </field>
+    </record>
+
+    <!-- Vista de Lista (Tree) -->
+    <record id="directorio_contacto_view_tree" model="ir.ui.view">
+        <field name="name">directorio.contacto.tree</field>
+        <field name="model">directorio.contacto</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="function"/>
+                <field name="rol_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de Formulario (Form) -->
+    <record id="directorio_contacto_view_form" model="ir.ui.view">
+        <field name="name">directorio.contacto.form</field>
+        <field name="model">directorio.contacto</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="nombre" placeholder="Nombre..." class="me-2"/>
+                            <field name="apellido" placeholder="Apellido..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="function"/>
+                            <field name="email" widget="email"/>
+                            <field name="rol_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                        <group>
+                            <label for="street" string="Dirección"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Calle..."/>
+                                <field name="city" placeholder="Ciudad"/>
+                                <field name="state_id" placeholder="Estado/Provincia" domain="[('country_id', '=', country_id)]"/>
+                                <field name="zip" placeholder="Código Postal"/>
+                                <field name="country_id" placeholder="País"/>
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Teléfonos" name="telefonos">
+                            <field name="telefono_ids">
+                                <tree editable="bottom">
+                                    <field name="numero"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notas" name="notes">
+                            <field name="notes" placeholder="Añade notas internas aquí..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de Búsqueda (Search) -->
+    <record id="directorio_contacto_view_search" model="ir.ui.view">
+        <field name="name">directorio.contacto.search</field>
+        <field name="model">directorio.contacto</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Nombre o Apellido"/>
+                <field name="function" string="Cargo"/>
+                <field name="telefono_ids" string="Teléfono" filter_domain="[('telefono_ids.numero', 'ilike', self)]"/>
+                <field name="rol_ids" string="Rol"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Rol" name="group_by_rol" context="{'group_by': 'rol_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vistas para Directorio Rol -->
+    <record id="directorio_rol_action" model="ir.actions.act_window">
+        <field name="name">Roles del Directorio</field>
+        <field name="res_model">directorio.rol</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="directorio_rol_view_tree" model="ir.ui.view">
+        <field name="name">directorio.rol.tree</field>
+        <field name="model">directorio.rol</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="directorio_rol_view_form" model="ir.ui.view">
+        <field name="name">directorio.rol.form</field>
+        <field name="model">directorio.rol</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>

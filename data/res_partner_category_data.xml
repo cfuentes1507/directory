@@ -1,0 +1,23 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Etiquetas de Organización/Rol -->
+        <record id="cat_conppa" model="res.partner.category">
+            <field name="name">CONPPA</field>
+        </record>
+        <record id="cat_inspectores" model="res.partner.category">
+            <field name="name">Inspectores</field>
+        </record>
+        <record id="cat_voceros" model="res.partner.category">
+            <field name="name">Voceros</field>
+        </record>
+        <record id="cat_cientificos" model="res.partner.category">
+            <field name="name">Científicos</field>
+        </record>
+        <record id="cat_pescadores" model="res.partner.category">
+            <field name="name">Pescadores</field>
+        </record>
+        <record id="cat_fomento" model="res.partner.category">
+            <field name="name">Fomento</field>
+        </record>
+    </data>
+</odoo>
