@@ -1,4 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_directorio_contacto,directorio.contacto,model_directorio_contacto,base.group_user,1,1,1,1
-access_directorio_telefono,directorio.telefono,model_directorio_telefono,base.group_user,1,1,1,1
-access_directorio_rol,directorio.rol,model_directorio_rol,base.group_user,1,1,1,1
+access_directorio_contacto,directorio.contacto,model_directorio_contacto,directory.group_directorio_user,1,0,0,0
+access_directorio_telefono,directorio.telefono,model_directorio_telefono,directory.group_directorio_user,1,0,0,0
+access_directorio_rol,directorio.rol,model_directorio_rol,directory.group_directorio_user,1,0,0,0
+access_directorio_contacto_manager,directorio.contacto,model_directorio_contacto,directory.group_directorio_manager,1,1,1,1
+access_directorio_contacto_supervisor,directorio.contacto,model_directorio_contacto,directory.group_directorio_supervisor,1,1,1,0
+access_directorio_telefono_manager,directorio.telefono,model_directorio_telefono,directory.group_directorio_manager,1,1,1,1
+access_directorio_telefono_supervisor,directorio.telefono,model_directorio_telefono,directory.group_directorio_supervisor,1,1,1,0
+access_directorio_rol_manager,directorio.rol,model_directorio_rol,directory.group_directorio_manager,1,1,1,1
+access_directorio_rol_supervisor,directorio.rol,model_directorio_rol,directory.group_directorio_supervisor,1,1,1,0

@@ -8,6 +8,7 @@
     'category': 'Tools',
     'depends': ['base'], # ¡Solo depende de base, no de contacts!
     'data': [
+        'security/directory_security.xml',
         'security/ir.model.access.csv',
         'data/directorio_rol_data.xml',
         'views/directorio_views.xml',
